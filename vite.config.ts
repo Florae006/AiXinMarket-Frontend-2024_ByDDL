@@ -10,25 +10,6 @@ import { VarletImportResolver } from '@varlet/import-resolver'
 
 import basicSSL from '@vitejs/plugin-basic-ssl'
 
-import pxtoviewport from 'postcss-px-to-viewport';
-
-
-const px2vw = pxtoviewport({
-  unitToConvert: 'px',
-  viewportWidth: 750,
-  unitPrecision: 5,
-  propList: ['*'],
-  viewportUnit: 'vw',
-  fontViewportUnit: 'vw',
-  selectorBlackList: [],
-  minPixelValue: 1,
-  mediaQuery: false,
-  replace: true,
-  exclude: [],
-  landscape: false,
-  landscapeUnit: 'vw',
-  landscapeWidth: 568,
-});
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -69,9 +50,6 @@ export default defineConfig({
 
   css: {
     preprocessorOptions: {
-      postcss: {
-        plugins: [px2vw],
-      },
       less: {
         modifyVars: {
           // 'primary-color': '#1890ff',
@@ -105,6 +83,28 @@ export default defineConfig({
     //     ws: true,
     //   },
     // },
+  },
+
+  build: {
+    outDir: 'dist',	// 设置输出目录
+    assetsDir: 'assets',	// 设置静态资源目录
+    assetsInlineLimit: 4096,	// 设置资源内联的最大尺寸
+    sourcemap: false,	// 设置是否构建源映射
+    manifest: true,	// 设置是否生成 manifest.json 文件
+    chunkSizeWarningLimit: 1500,  // 设置构建警告的最大尺寸
+    rollupOptions: {
+      // 设置输出文件名
+      output: {
+        entryFileNames: 'entry-[hash].js',
+        chunkFileNames: 'chunk-[hash].js',
+        assetFileNames: 'asset-[hash].[ext]',
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return id.toString().split('node_modules/')[1].split('/')[0].toString();
+          }
+        }
+      },
+    },
   },
 })
 

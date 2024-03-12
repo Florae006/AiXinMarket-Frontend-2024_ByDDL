@@ -90,7 +90,7 @@ export default {
 <br/>
 
   <h1>NaiveUI</h1>
-  <n-page-header subtitle="让你的听觉更懂视觉" @back="handleBack">
+  <n-page-header subtitle="让你的听觉更懂视觉">
     <n-grid :cols="5">
       <n-gi>
         <n-statistic label="正片" value="125 集" />
@@ -128,14 +128,8 @@ export default {
       />
     </template>
     <template #extra>
-      <n-space>
-        <n-button>催更</n-button>
-        <n-dropdown :options="options" placement="bottom-start">
-          <n-button :bordered="false" style="padding: 0 4px">
-            ···
-          </n-button>
-        </n-dropdown>
-      </n-space>
+      <n-button type="primary">订阅</n-button>
+      <n-button>收藏</n-button>
     </template>
     <template #footer>
       截止到 2021 年 4 月 3 日

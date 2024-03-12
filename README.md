@@ -20,5 +20,5 @@
 在桌面端，使用 @varlet/touch-emulator 方案进行适配。
 
 # 存在问题
--[ ] 解析ts时有一些神秘问题qwq
--[ ] postcss-px-to-viewport的引入一直失败//?
+- [x] 解析ts时有一些神秘问题qwq
+- [x] postcss-px-to-viewport的引入一直失败//?
