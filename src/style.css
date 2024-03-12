@@ -1,0 +1,11 @@
+* {
+  margin:0 auto;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body {
+  background-color: var(--color-bg-1);
+  color: var(--color-text-1);
+  color-scheme: dark; /* 设置这个属性滚动条可以表现为暗色模式 */
+}

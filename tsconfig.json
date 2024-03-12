@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    
+    "paths":{
+      "@/*": ["./src/*"]
+    },
+
+    "allowJs": true,  // 指定原目录的js文件是否原样拷贝到编译后的目录
+
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": [  // 哪些文件需要编译
+    "src/**/*.ts", 
+    "src/**/*.tsx", 
+    "src/**/*.vue",
+    
+    "auto-imports.d.ts",
+    "components.d.ts",
+
+    "types/**/*.d.ts",
+    "types/**/*.ts",
+],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
